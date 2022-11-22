@@ -239,6 +239,10 @@
 	if(istype(loc, /obj/structure/sconce))
 		loc.update_appearance()
 
+/obj/item/flashlight/fueled/torch/examine (mob/user)
+	on = FALSE
+	user << "<span class='notice'>This torch has extinguished, the wick can replenished using wheat or barley.</span>"
+
 /obj/item/flashlight/fueled/torch/lit
 
 /obj/item/flashlight/fueled/torch/lit/Initialize()
@@ -281,6 +285,12 @@
 	light_range = 6			// luminosity when on
 	light_system = MOVABLE_LIGHT
 	light_color = "#e7c16d"
+
+/obj/item/flashlight/fueled/lantern/examine(obj/item/I, mob/user)
+	var/obj/item/flashlight/fueled/candle/C = I
+	if(C.on && !on)
+		on = FALSE
+		user << "<span class='notice'>This latern's candle has extinguished, and will need replacing with a fresh candle.</span>"
 
 /obj/item/flashlight/fueled/lantern/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/flashlight/fueled/candle))
