@@ -173,7 +173,7 @@
 	cat = "food processing"
 
 /obj/structure/blueprint/dryer
-	name = "tanning rack"
-	target_structure = /obj/structure/tanning_rack
+	name = "drying rack"
+	target_structure = /obj/structure/drying_rack
 	reqs = list(/obj/item/stack/sheet/planks=7)
 	cat = "craftsmanship"

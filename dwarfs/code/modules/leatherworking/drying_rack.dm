@@ -1,14 +1,14 @@
-/obj/structure/tanning_rack
-	name = "tanning rack"
+/obj/structure/drying_rack
+	name = "drying rack"
 	desc = "Used for drying wet hide."
 	icon = 'dwarfs/icons/structures/workshops.dmi'
-	icon_state = "tanning_rack"
+	icon_state = "drying_rack"
 	anchored = TRUE
 	density = TRUE
 	var/tanning_time = 1 MINUTES
 	var/timerid
 
-/obj/structure/tanning_rack/attackby(obj/item/I, mob/user, params)
+/obj/structure/drying_rack/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/stack/sheet/wethide))
 		if(contents.len)
 			to_chat(user, span_warning("There is already something on [src]."))
@@ -20,7 +20,7 @@
 	else
 		. = ..()
 
-/obj/structure/tanning_rack/attack_hand(mob/user)
+/obj/structure/drying_rack/attack_hand(mob/user)
 	if(contents.len)
 		to_chat(user, span_notice("You remove [contents[1]] from [src]."))
 		var/mob/living/carbon/human/H = user
@@ -29,19 +29,19 @@
 			deltimer(timerid)
 		update_appearance()
 
-/obj/structure/tanning_rack/proc/dry()
+/obj/structure/drying_rack/proc/dry()
 	var/obj/item/stack/sheet/wethide/W = contents[1]
 	var/obj/item/stack/sheet/dryhide/D = new(src)
 	D.leather_amount = W.leather_amount
 	qdel(W)
 	update_appearance()
 
-/obj/structure/tanning_rack/update_icon_state()
+/obj/structure/drying_rack/update_icon_state()
 	. = ..()
 	if(!contents.len)
-		icon_state = "tanning_rack"
+		icon_state = "drying_rack"
 	else
 		if(istype(contents[1], /obj/item/stack/sheet/wethide))
-			icon_state = "tanning_rack_wet_hide"
+			icon_state = "drying_rack_wet_hide"
 		else if(istype(contents[1], /obj/item/stack/sheet/dryhide))
-			icon_state = "tanning_rack_dry_hide"
+			icon_state = "drying_rack_dry_hide"
