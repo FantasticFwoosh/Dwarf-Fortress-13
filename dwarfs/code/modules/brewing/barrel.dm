@@ -40,6 +40,9 @@
 	to_chat(user, span_notice("You [open? "open" : "close"] \the [src]."))
 	update_appearance()
 
+/obj/structure/barrel/examine (mob/user)
+	user << "<span class='notice'>[src] can be open/closed using alt-click.</span>"
+
 /obj/structure/barrel/attackby(obj/item/I, mob/user, params)
 	if(!open)
 		return ..()

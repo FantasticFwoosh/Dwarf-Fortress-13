@@ -26,6 +26,7 @@
 		.+="<br>It has [reagents.get_reagent_names()] in it."
 	if(!length(contents) && !reagents.total_volume)
 		.+="<br>It's empty."
+	to_chat(user, span_notice("[src] can be closed/opened with alt-click."))
 
 /obj/structure/quern/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/growable))

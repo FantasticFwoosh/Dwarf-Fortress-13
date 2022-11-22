@@ -41,6 +41,9 @@
 	create_reagents(300)
 	START_PROCESSING(SSprocessing, src)
 
+/obj/structure/brewery/examine (mob/user)
+	user << "<span class='notice'>[src] can be open/closed using alt-click.</span>"
+
 /obj/structure/brewery/l/AltClick(mob/user)
 	if(working)
 		to_chat(user, span_warning("Cannot open [src] while it's working."))

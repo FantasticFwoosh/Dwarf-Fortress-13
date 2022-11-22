@@ -2,7 +2,7 @@
 
 /obj/structure/stove
 	name = "stove"
-	desc = "Slowfire stove. Great for cooking and boiling stuff."
+	desc = "Slowfire stove. Great for cooking and boiling stuff with pots and pans."
 	icon = 'dwarfs/icons/structures/workshops.dmi'
 	icon_state = "stove_closed_empty"
 	density = 1
@@ -71,6 +71,9 @@
 			M = mutable_appearance(right_item.icon, "skillet_world")
 		M.pixel_x = clamp(24 - 16, -(world.icon_size/2), world.icon_size/2)
 		.+=M
+
+/obj/structure/stove/examine (mob/user)
+	user << "<span class='notice'>[src]'s fuel compartment can be open/closed using alt-click.</span>"
 
 /obj/structure/stove/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/reagent_containers/glass/cooking_pot) || istype(I, /obj/item/reagent_containers/glass/pan))
