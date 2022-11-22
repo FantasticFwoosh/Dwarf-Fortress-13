@@ -17,7 +17,7 @@
 
 /obj/structure/table/wood
 	name = "wooden table"
-	desc = ""
+	desc = "Suitable for upsetting elven dinner-guests"
 	icon = 'dwarfs/icons/structures/wood_table.dmi'
 	icon_state = "wood_table-0"
 	base_icon_state = "wood_table"

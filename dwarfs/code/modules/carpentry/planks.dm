@@ -45,6 +45,9 @@ GLOBAL_LIST_INIT(plank_recipes, list (
 	righthand_file = 'dwarfs/icons/mob/inhand/righthand.dmi'
 	lefthand_file = 'dwarfs/icons/mob/inhand/lefthand.dmi'
 
+/obj/item/stack/sheet/bark/examine (mob/user)
+	user << "<span class='notice'>Using a barrel of water, bark can be turned into tanin for the leatherworking process.</span>"
+
 /obj/structure/lattice
 	name = "wooden lattice"
 	desc = "Blocks you from falling down and allows building floors."
